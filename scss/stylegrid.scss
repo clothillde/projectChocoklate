@@ -1,0 +1,492 @@
+@import "_variables";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@mixin borderRadius($percent) {
+  -webkit-border-radius: $percent;
+  -moz-border-radius: $percent;
+  border-radius: $percent;
+}
+
+@mixin flexBox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+[class*='col-'] {
+  float: left;
+  min-height: 1px;
+  margin: 1px 0;
+}
+
+.row:before,
+.row:after {
+  content : " ";
+  display : table;
+  clear: both;
+}
+
+@for $i from 1 through 4 {
+  .col-#{$i} { width: 25% * $i; }
+}
+
+
+// header style
+#bkg {
+  .header {
+    position: relative;
+  }
+  background-color: $blackBkg;
+  width: 100%;
+  height: 82px;
+  position: relative;
+  .fourcircles {
+    position: relative;
+  }
+  .col-1 {
+    display: none;
+    @media(min-width: 640px){
+      display: block;
+    }
+    &:first-child {
+      margin-top: 15px;
+    }
+    #circle {
+      position: absolute;
+      margin-top: -136px;
+      background-color: white;
+      @include borderRadius(50%);
+      width: 250px;
+      height: 200px;
+      display: none;
+      #circletext {
+        color: black;
+        font-size: 0.9em;
+        margin-top: 130px;
+        margin-left: 40px;
+        p {
+          margin-top: 0;
+          font-size: 1.3em;
+          font-weight: bold;
+          text-align: center;
+        }
+      }
+
+      img {
+        position: relative;
+        top: 20px;
+      }
+      @media(min-width: 900px){
+        display: block;
+      }
+    }
+  }
+  .col-2 {
+    margin-top: 15px;
+    width: 100%;
+    @media(min-width: 640px) {
+      width: 75%;
+    }
+    @media(min-width: 900px){
+      width: 50%;
+    }
+    ul {
+      list-style-type: none;
+      width: 100%;
+      background-color: $blackBkg;
+      margin-top: 60px;
+      @media(min-width: 640px){
+        display: block;
+        text-align: right;
+        margin-top: 15px;
+      }
+      li {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        @media(min-width: 640px){
+          display: inline-block;
+          text-align: center;
+          padding: 0 10px;
+        }
+        a {
+          color: $whiteFont;
+          font-family: Tahoma, sans-serif;
+          text-decoration: none;
+          &.active {
+            color: cornflowerblue;
+          }
+        }
+      }
+    }
+    #hamburger{
+    width: 40px;
+    background-color: $blackBkg;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    line-height: 45px;
+    color: $whiteFont;
+    border: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    @media (min-width: 640px) {
+      display: none;
+    }
+  }
+    #smallcircle1 {
+      width: 25px;
+      height: 25px;
+      @include borderRadius(50%);
+      background-color: white;
+      position: absolute;
+      right: 400px;
+      bottom: 35px;
+      display: none;
+      @media(min-width: 900px){
+        display: block;
+      }
+    }
+    #smallcircle2 {
+      width: 15px;
+      height: 15px;
+      @include borderRadius(50%);
+      background-color: white;
+      position: absolute;
+      right: 375px;
+      top: 5px;
+      display: none;
+      @media(min-width: 900px){
+        display: block;
+      }
+    }
+    #smallcircle3 {
+      width: 10px;
+      height: 10px;
+      @include borderRadius(50%);
+      background-color: white;
+      position: absolute;
+      right: 355px;
+      top: 5px;
+      display: none;
+      @media(min-width: 900px){
+        display: block;
+      }
+    }
+  }
+}
+.hidden {
+    display: none;
+}
+.visible {
+    display: block;
+}
+
+
+//blue section style
+#bluebanner {
+  width: 100%;
+  height: calc(100%-100px);
+  background-color: cornflowerblue;
+  color: $whiteFont;
+  font-family: Tahoma, sans-serif;
+  @media(min-width: 900px){
+    height: 186px;
+    background-image: url("../imagesgrid/Chocoklate_10.png");
+  }
+  .rwd {
+    width: 100%;
+    font-size: $mobileSizeFont;
+    @media(min-width: 900px){
+      width: 50%;
+      font-size: $desktopSizeFont;
+    }
+    h2 {
+      letter-spacing: 1px;
+    }
+  }
+  .col-2 {
+    &.img {
+      background-image: url("../imagesgrid/Chocoklate_03.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 185px;
+      display: none;
+      @media(min-width: 900px){
+        display: block;
+      }
+    }
+  }
+}
+
+
+//white section style with tags
+#whitebanner {
+  height: calc(100%-200px);
+  .container {
+    .row {
+      .col-3 {
+        width: 100%;
+        font-size: $mobileSizeFont;
+        @media(min-width: 768px){
+          width: 100%;
+          font-size: $tabletSizeFont;
+          height: 380px;
+        }
+        @media(min-width: 900px){
+          line-height: 150%;
+          width: 75%;
+          font-size: $desktopSizeFont;
+        }
+        h2 {
+          font-family: Arial, sans-serif;
+          font-weight: bold;
+        }
+        #pralines {
+          background-image: url("../imagesgrid/Chocoklate_20.png");
+          height: 212px;
+          width: 275px;
+          background-repeat: no-repeat;
+          float: left;
+          margin-right: 20px;
+          display: none;
+          @media(min-width: 768px){
+            display: block;
+          }
+        }
+        #txt {
+          color: $greyFont;
+          font-family: Arial, sans-serif;
+        }
+      }
+      .col-1 {
+        background-image: url("../imagesgrid/Chocoklate_tags_15.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 250px;
+        width: 220px;
+        margin-top: 30px;
+        display: none;
+        @media(min-width: 900px){
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+
+//black section style
+#ourwork {
+  width: 100%;
+  height: 525px;
+  background-color: $blackBkg;
+  color: $whiteFont;
+  font-family: Arial, sans-serif;
+  line-height: 150%;
+  h1 {
+    padding: 10px;
+  }
+  .flex {
+    @include flexBox();
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .rectangle {
+      width: 25%;
+      height: 200px;
+      border: 10px solid black;
+    }
+    #some_txt {
+      display: block;
+      width: 100%;
+      font-size: $mobileSizeFont;
+      line-height: 200%;
+      @media(min-width: 768px){
+        display: none;
+      }
+      @media(min-width: 900px){
+        display: block;
+        font-size: $desktopSizeFont;
+        width: 25%;
+      }
+    }
+    #Chocoklate_25 {
+      background-image: url("../imagesgrid/Chocoklate_25.png");
+      background-repeat: no-repeat;
+    }
+    #Chocoklate_27 {
+      background-image: url("../imagesgrid/Chocoklate_27.png");
+      background-repeat: no-repeat;
+    }
+    #Chocoklate_29 {
+      background-image: url("../imagesgrid/Chocoklate_29.png");
+      background-repeat: no-repeat;
+    }
+    #Chocoklate_33 {
+      background-image: url("../imagesgrid/Chocoklate_33.png");
+      background-repeat: no-repeat;
+    }
+    #Chocoklate_34 {
+      background-image: url("../imagesgrid/Chocoklate_34.png");
+      background-repeat: no-repeat;
+    }
+    #Chocoklate_35 {
+      background-image: url("../imagesgrid/Chocoklate_35.png");
+      background-repeat: no-repeat;
+    }
+    #black {
+      border: none;
+      @media(max-width: 900px){
+        display: none;
+      }
+    }
+    #Chocoklate_25, #Chocoklate_27, #Chocoklate_29, #Chocoklate_33, #Chocoklate_34, #Chocoklate_35 {
+      display: none;
+      @media(min-width: 768px){
+        display: block;
+      }
+    }
+  }
+}
+
+
+//section with raspberries style
+#raspberries {
+  font-family: Arial, sans-serif;
+  color: $greyFont;
+  .col-3 {
+    width: 100%;
+    font-size: $mobileSizeFont;
+    line-height: 120%;
+    @media(min-width: 768px){
+      font-size: $tabletSizeFont;
+    }
+    @media(min-width: 900px){
+      font-size: $desktopSizeFont;
+      line-height: 150%;
+      width: 75%;
+    }
+  }
+  h1 {
+    color: black;
+  }
+  .photo {
+    width: 100%;
+    background-image: url("../imagesgrid/Chocoklate_41.png");
+    background-repeat: no-repeat;
+    height: 350px;
+    display: none;
+    @media(min-width: 900px){
+      display: block;
+    }
+  }
+  #globe {
+    background-image: url("../imagesgrid/Chocoklate_44.png");
+    background-repeat: no-repeat;
+    height: 96px;
+    width: 100px;
+    margin-top: 75px;
+    margin-left: 120px;
+    display: none;
+    @media(min-width: 900px){
+      display: block;
+    }
+  }
+}
+
+
+//section with yummy muffin style
+#yummy {
+  font-family: Arial, sans-serif;
+  line-height: 150%;
+  color: $whiteFont;
+  height: 308px;
+  width: 100%;
+  background-color: $blackBkg;
+  #muffin_text {
+    padding: 41px;
+    position: relative;
+    width: 100%;
+    font-size: $tabletSizeFont;
+    @media(min-width: 768px){
+      width: 50%;
+      font-size: $desktopSizeFont;
+    }
+    h1 {
+      text-align: right;
+    }
+    p {
+      text-align: left;
+    }
+    a {
+      color: $whiteFont;
+      position: absolute;
+      right: 45px;
+    }
+  }
+  #muffin {
+    background-image: url("../imagesgrid/Chocoklate_48.png");
+    background-repeat: no-repeat;
+    height: 308px;
+    width: 50%;
+    display: none;
+    @media(min-width: 768px){
+      display: block;
+    }
+  }
+}
+
+
+//section with contact style
+@font-face {
+  font-family: "bonveno";
+  src: url("../fonts/bonvenocf-light.woff") format("woff"),
+       url("../fonts/bonvenocf-light.woff2") format("woff2");
+  font-weight: lighter;
+  font-style: normal;
+}
+#contact {
+  color: lightgrey;
+  font-family: "bonveno", Arial, sans-serif;
+  font-weight: lighter;
+  font-size: 1.5em;
+  height: 175px;
+  letter-spacing: 1px;
+  padding-top: 60px;
+  .col-2 {
+    width: 100%;
+    @media(min-width: 768px){
+      width: 50%;
+    }
+    span {
+      font-weight: lighter;
+      color: $greyFont;
+    }
+  }
+}
+
+
+//footer style
+footer {
+  color: $greyFont;
+  text-align: center;
+  font-size: 0.8em;
+}
