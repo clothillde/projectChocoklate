@@ -20,3 +20,5 @@ gulp.task('jshint', function(){
 gulp.task('watch', function(){
   gulp.watch('scss/*.scss', ['sass']);
 })
+
+gulp.task('default', ['sass', 'watch']);
